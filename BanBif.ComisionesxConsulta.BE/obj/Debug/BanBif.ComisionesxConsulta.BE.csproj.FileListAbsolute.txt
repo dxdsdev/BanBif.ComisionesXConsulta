@@ -1,0 +1,32 @@
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.CoreCompileInputs.cache
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.AssemblyReference.cache
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Algorithms.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Encoding.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Primitives.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csprojAssemblyReference.cache
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.CoreCompileInputs.cache
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.CopyComplete
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.AssemblyReference.cache
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.CoreCompileInputs.cache
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.csproj.CopyComplete
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BE\obj\Debug\BanBif.ComisionesxConsulta.BE.pdb

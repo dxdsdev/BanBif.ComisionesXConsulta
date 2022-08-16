@@ -1,0 +1,207 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BanBif | Consulta de Movimiento</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/form-elements.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link href="~/assets/css/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/assets/css/alertifyjs/default.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="~/assets/ico/favicon.ico">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- AUCH-->
+    @*<script src="~/assets/js/jquery-1.11.1.min.js"></script>*@
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/alertifyjs/alertify.min.js"></script>
+    <script src="~/assets/js/jquery.blockUI.js"></script>
+</head>
+
+
+
+<body style="zoom:90%;">
+    <div id="ModalLoading" style="display: none;">
+        <span>
+            <img src="~/assets/img/loading2.gif" width="25" height="25" /> Cargando ....
+        </span>
+    </div>
+
+    <section class="principal">
+
+        <!-- Top menu -->
+        <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="paso1.html">BanBif</a>
+            </div>
+        </nav>
+
+        <div class="top-content">
+            <div class="container">
+                <div class="row">
+
+                    <div style="margin-top: 5%;" class="col-sm-1 col-md-5 col-lg-7 pull-left text-left">
+
+                        <div class="titulo-principal">
+                            <img class="ico_prestamo mobile-none" src="~/assets/img/iconos/ico-prestamo.png">
+                            <h2>
+                                Hola, Solicitud de duplicado de documentos
+                            </h2>
+                        </div>
+                        <img src="~/assets/img/iconos/puntos.png" style="height: 12px; width: auto;" class="mobile-none">
+                        <h4 class="mobile-none" style="color: white;">
+                            Ahora también  puedes solicitar las copias de los
+                        </h4>
+                        <h4 class="mobile-none" style="color: white;">
+                            movimientos de años anteriores  de tus
+                        </h4>
+                        <h4 class="mobile-none" style="color: white;">
+                           cuentas de ahorro aquí.
+                        </h4>
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-5 col-lg-5 pull-left text-left">
+                        <div class="form-box pull-right">
+
+                            <script src="~/assets/js/moment-with-locales.js"></script>
+                            <script src="~/assets/js/numeral.js"></script>
+
+                            <style>
+                                .modal-header {
+                                    padding: 5px;
+                                }
+
+                                .modal-body {
+                                    position: relative;
+                                    padding: 0px 25px 25px;
+                                }
+
+                                .modal {
+                                    position: fixed;
+                                    top: -30px;
+                                    right: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    z-index: 1050;
+                                    display: none;
+                                    overflow: hidden;
+                                    -webkit-overflow-scrolling: touch;
+                                    outline: 0;
+                                }
+                            </style>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form role="form" action="" method="post" class="f1">
+                                        <div class="f1-steps text-center">
+                                            <div class="f1-progress">
+                                                <div class="f1-progress-line" data-now-value="0" data-number-of-steps="4" style="width: 20%;"></div>
+                                            </div>
+                                            <div id="f1" class="f1-step active">
+                                                <div class="f1-step-icon text-center">1</div>
+                                            </div>
+                                            <div id="f2" class="f1-step">
+                                                <div class="f1-step-icon text-center">2</div>
+                                            </div>
+                                            <div id="f3" class="f1-step">
+                                                <div class="f1-step-icon text-center">3</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            @RenderBody()
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                                <div style="width:50%" class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="TerminosCondiciones">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div style="margin-top: 10px; margin-left: 30px; margin-right:30px;">
+            <p>
+                <strong style="color: white;">
+                    Términos y Condiciones: Tarifa promocional de S/50 vigente del 21.10.21 al 31.12.21 para clientes que ingresen su solicitud a través de este canal. Tarifa válida por cada año de movimientos solicitado. El cobro se realizará hasta 2 días hábiles después del ingreso de la solicitud, sobre los fondos disponibles de la cuenta en consulta elegida en la solicitud o, de no tener fondos disponibles en dicha cuenta, en cualquier otra cuenta de ahorro BanBif de titularidad del cliente con fondos disponibles. De ser una cuenta en dólares, se aplicará el tipo de cambio venta vigente en BanBif a la fecha de la operación de cobro. En caso de no tener fondos disponibles para realizar el cobro, la solicitud no podrá ser atendida por este canal. Los movimientos se emitirán en formato físico impreso y podrán ser recogidos por el titular de la cuenta en la oficina BanBif elegida en la solicitud a partir de los dos días hábiles de su ingreso.
+                    Condiciones de la Solicitud: Por este canal podrás solicitar copias de los movimientos de hasta 5 años anteriores al presente. Para copias de documentos con movimientos de mayor antigüedad, puedes solicitarlos en cualquier Oficina BanBif, según tarifario vigente.
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <div>
+
+    </div>
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.backstretch.min.js"></script>
+    <script src="~/assets/js/scripts.js"></script>
+    <script type="text/javascript">
+        function FN_Loading() {
+
+            $.blockUI({
+                message: $("#ModalLoading"),
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000000',
+                    '-webkit-border-radius': '50px',
+                    '-moz-border-radius': '50px',
+                    opacity: .7,
+                    color: '#fff'
+                },
+                baseZ: 2000
+
+            });
+        }
+    </script>
+
+</body>
+</html>

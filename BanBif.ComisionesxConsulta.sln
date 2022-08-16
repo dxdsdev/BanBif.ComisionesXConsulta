@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.ComisionesxConsulta.DA", "BanBif.ComisionesxConsulta.DA\BanBif.ComisionesxConsulta.DA.csproj", "{C2F4793E-CB56-40B4-BDF5-A0B0EC5111AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.ComisionesxConsulta.BE", "BanBif.ComisionesxConsulta.BE\BanBif.ComisionesxConsulta.BE.csproj", "{FEDA31BF-70B4-466F-95D4-B88895AC4641}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.ComisionesxConsulta.BL", "BanBif.ComisionesxConsulta.BL\BanBif.ComisionesxConsulta.BL.csproj", "{776B7F18-34FD-4C38-BA71-E071A13A2E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.ComisionesxConsulta.Api", "BanBif.ComisionesxConsulta.Api\BanBif.ComisionesxConsulta.Api.csproj", "{92399A96-C649-426E-942E-197891B7CB6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanBif.ComisionesxConsulta.Web", "BanBif.ComisionesxConsulta.Web\BanBif.ComisionesxConsulta.Web.csproj", "{C7330490-0289-49D7-BDC3-89A2EE90C7FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2F4793E-CB56-40B4-BDF5-A0B0EC5111AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F4793E-CB56-40B4-BDF5-A0B0EC5111AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F4793E-CB56-40B4-BDF5-A0B0EC5111AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F4793E-CB56-40B4-BDF5-A0B0EC5111AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDA31BF-70B4-466F-95D4-B88895AC4641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDA31BF-70B4-466F-95D4-B88895AC4641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDA31BF-70B4-466F-95D4-B88895AC4641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDA31BF-70B4-466F-95D4-B88895AC4641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776B7F18-34FD-4C38-BA71-E071A13A2E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776B7F18-34FD-4C38-BA71-E071A13A2E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776B7F18-34FD-4C38-BA71-E071A13A2E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776B7F18-34FD-4C38-BA71-E071A13A2E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92399A96-C649-426E-942E-197891B7CB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92399A96-C649-426E-942E-197891B7CB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92399A96-C649-426E-942E-197891B7CB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92399A96-C649-426E-942E-197891B7CB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7330490-0289-49D7-BDC3-89A2EE90C7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7330490-0289-49D7-BDC3-89A2EE90C7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7330490-0289-49D7-BDC3-89A2EE90C7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7330490-0289-49D7-BDC3-89A2EE90C7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5778AB52-1AAC-4332-8E6F-D790312A8022}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/banbif
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BanBif.ComisionesxConsulta.BE\\BanBif.ComisionesxConsulta.BE.csproj
+		SccProjectName1 = BanBif.ComisionesxConsulta.BE
+		SccLocalPath1 = BanBif.ComisionesxConsulta.BE
+		SccProjectUniqueName2 = BanBif.ComisionesxConsulta.DA\\BanBif.ComisionesxConsulta.DA.csproj
+		SccProjectName2 = BanBif.ComisionesxConsulta.DA
+		SccLocalPath2 = BanBif.ComisionesxConsulta.DA
+		SccProjectUniqueName3 = BanBif.ComisionesxConsulta.BL\\BanBif.ComisionesxConsulta.BL.csproj
+		SccProjectName3 = BanBif.ComisionesxConsulta.BL
+		SccLocalPath3 = BanBif.ComisionesxConsulta.BL
+		SccProjectUniqueName4 = BanBif.ComisionesxConsulta.Api\\BanBif.ComisionesxConsulta.Api.csproj
+		SccProjectName4 = BanBif.ComisionesxConsulta.Api
+		SccLocalPath4 = BanBif.ComisionesxConsulta.Api
+		SccProjectUniqueName5 = BanBif.ComisionesxConsulta.Web\\BanBif.ComisionesxConsulta.Web.csproj
+		SccProjectName5 = BanBif.ComisionesxConsulta.Web
+		SccLocalPath5 = BanBif.ComisionesxConsulta.Web
+	EndGlobalSection
+EndGlobal

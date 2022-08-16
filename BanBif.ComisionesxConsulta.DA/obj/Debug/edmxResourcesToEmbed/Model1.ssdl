@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="panelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_ACOMISIONESXC_ANIOS">
+    <Key>
+      <PropertyRef Name="CODIGO_ANIO" />
+    </Key>
+    <Property Name="CODIGO_ANIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ANIO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ESTADO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+    <Key>
+      <PropertyRef Name="ID_CIUDAD" />
+    </Key>
+    <Property Name="ID_CIUDAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UBIGEO_CIUDAD" Type="varchar" MaxLength="60" />
+    <Property Name="NOMBRE_CIUDAD" Type="varchar" MaxLength="500" />
+    <Property Name="ESTADO" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+    <Key>
+      <PropertyRef Name="ID_OFICINA" />
+    </Key>
+    <Property Name="ID_OFICINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_CIUDAD" Type="int" />
+    <Property Name="UBIGEO_OFICINA" Type="varchar" MaxLength="60" />
+    <Property Name="NOMBRE_OFICINA" Type="varchar" MaxLength="500" />
+    <Property Name="ESTADO" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_mCOMISIONESXC_CLIENTE">
+    <Key>
+      <PropertyRef Name="CODIGOCLIENTE" />
+    </Key>
+    <Property Name="CODIGOCLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="300" />
+    <Property Name="DOCUMENTO" Type="varchar" MaxLength="20" />
+    <Property Name="CORREO" Type="varchar" MaxLength="1000" />
+    <Property Name="TIPO_PRODUCTO" Type="varchar" MaxLength="300" />
+    <Property Name="NROTARJETA" Type="varchar" MaxLength="500" />
+    <Property Name="NUMEROCUENTA" Type="varchar" MaxLength="500" />
+    <Property Name="TIENECONSULTA" Type="bit" />
+    <Property Name="COMPROBACION" Type="bit" />
+    <Property Name="FECHA_REGISTRO" Type="datetime" />
+    <Property Name="ESTADO" Type="int" />
+    <Property Name="ULTIMOSDIGITOSNROCUENTA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_mCOMISIONESXC_CONSULTA">
+    <Key>
+      <PropertyRef Name="CODIGOCONSULTA" />
+    </Key>
+    <Property Name="CODIGOCONSULTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CODIGOCLIENTE" Type="int" />
+    <Property Name="ATENDIDO" Type="int" />
+    <Property Name="FECHA_ATENCION" Type="datetime" />
+    <Property Name="FECHA_CONSULTA" Type="datetime" />
+    <Property Name="FLAG_CORREO" Type="char" MaxLength="1" />
+    <Property Name="CARGOTARJETA" Type="bit" />
+    <Property Name="USUARIO_ATENCION" Type="varchar" MaxLength="20" />
+    <Property Name="OBSERVACION" Type="varchar" MaxLength="2000" />
+    <Property Name="CHK_TERMINOS_CONDICIONES" Type="bit" />
+    <Property Name="CHK_TARIFARIO" Type="bit" />
+    <Property Name="FECHA_OBSERVACION" Type="datetime" />
+    <Property Name="FECHA_OBSERVACION_UPD" Type="datetime" />
+    <Property Name="ID_CIUDAD" Type="int" Nullable="false" />
+    <Property Name="ID_OFICINA" Type="int" Nullable="false" />
+    <Property Name="ESTADO" Type="int" Nullable="false" />
+    <Property Name="CODIGO_PROCESO" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_MCOMISIONESXC_CONSULTA_ANIO">
+    <Key>
+      <PropertyRef Name="ID_CONSULTADETALL" />
+    </Key>
+    <Property Name="ID_CONSULTADETALL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CODIGOCONSULTA" Type="int" />
+    <Property Name="CODIGO_ANIO" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_mCOMISIONESXC_TOKEN">
+    <Key>
+      <PropertyRef Name="CODIGOTOKEN" />
+    </Key>
+    <Property Name="CODIGOTOKEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOCUMENTO" Type="varchar" MaxLength="20" />
+    <Property Name="TOKEN" Type="varchar" MaxLength="50" />
+    <Property Name="VALIDADO" Type="bit" />
+    <Property Name="FECHA" Type="date" />
+    <Property Name="ESTADO" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_aCOMI__ID_CI__0CD18DBE">
+    <End Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Type="Self.tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Multiplicity="0..1" />
+    <End Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA" Type="Self.tbl_aCOMISIONESXC_UBIGEO_OFICINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+        <PropertyRef Name="ID_CIUDAD" />
+      </Principal>
+      <Dependent Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+        <PropertyRef Name="ID_CIUDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_mCOMI__CODIG__119642DB">
+    <End Role="tbl_mCOMISIONESXC_CLIENTE" Type="Self.tbl_mCOMISIONESXC_CLIENTE" Multiplicity="0..1" />
+    <End Role="tbl_mCOMISIONESXC_CONSULTA" Type="Self.tbl_mCOMISIONESXC_CONSULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mCOMISIONESXC_CLIENTE">
+        <PropertyRef Name="CODIGOCLIENTE" />
+      </Principal>
+      <Dependent Role="tbl_mCOMISIONESXC_CONSULTA">
+        <PropertyRef Name="CODIGOCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_MCOMI__CODIG__6B06859F">
+    <End Role="tbl_mCOMISIONESXC_CONSULTA" Type="Self.tbl_mCOMISIONESXC_CONSULTA" Multiplicity="0..1" />
+    <End Role="TBL_MCOMISIONESXC_CONSULTA_ANIO" Type="Self.TBL_MCOMISIONESXC_CONSULTA_ANIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mCOMISIONESXC_CONSULTA">
+        <PropertyRef Name="CODIGOCONSULTA" />
+      </Principal>
+      <Dependent Role="TBL_MCOMISIONESXC_CONSULTA_ANIO">
+        <PropertyRef Name="CODIGOCONSULTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_MCOMI__CODIG__6BFAA9D8">
+    <End Role="TBL_ACOMISIONESXC_ANIOS" Type="Self.TBL_ACOMISIONESXC_ANIOS" Multiplicity="0..1" />
+    <End Role="TBL_MCOMISIONESXC_CONSULTA_ANIO" Type="Self.TBL_MCOMISIONESXC_CONSULTA_ANIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ACOMISIONESXC_ANIOS">
+        <PropertyRef Name="CODIGO_ANIO" />
+      </Principal>
+      <Dependent Role="TBL_MCOMISIONESXC_CONSULTA_ANIO">
+        <PropertyRef Name="CODIGO_ANIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_mCOMI__ID_CI__128A6714">
+    <End Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Type="Self.tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Multiplicity="1" />
+    <End Role="tbl_mCOMISIONESXC_CONSULTA" Type="Self.tbl_mCOMISIONESXC_CONSULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+        <PropertyRef Name="ID_CIUDAD" />
+      </Principal>
+      <Dependent Role="tbl_mCOMISIONESXC_CONSULTA">
+        <PropertyRef Name="ID_CIUDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_mCOMI__ID_OF__137E8B4D">
+    <End Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA" Type="Self.tbl_aCOMISIONESXC_UBIGEO_OFICINA" Multiplicity="1" />
+    <End Role="tbl_mCOMISIONESXC_CONSULTA" Type="Self.tbl_mCOMISIONESXC_CONSULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+        <PropertyRef Name="ID_OFICINA" />
+      </Principal>
+      <Dependent Role="tbl_mCOMISIONESXC_CONSULTA">
+        <PropertyRef Name="ID_OFICINA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="panelModelStoreContainer">
+    <EntitySet Name="TBL_ACOMISIONESXC_ANIOS" EntityType="Self.TBL_ACOMISIONESXC_ANIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" EntityType="Self.tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_aCOMISIONESXC_UBIGEO_OFICINA" EntityType="Self.tbl_aCOMISIONESXC_UBIGEO_OFICINA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mCOMISIONESXC_CLIENTE" EntityType="Self.tbl_mCOMISIONESXC_CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mCOMISIONESXC_CONSULTA" EntityType="Self.tbl_mCOMISIONESXC_CONSULTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_MCOMISIONESXC_CONSULTA_ANIO" EntityType="Self.TBL_MCOMISIONESXC_CONSULTA_ANIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mCOMISIONESXC_TOKEN" EntityType="Self.tbl_mCOMISIONESXC_TOKEN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_aCOMI__ID_CI__0CD18DBE" Association="Self.FK__tbl_aCOMI__ID_CI__0CD18DBE">
+      <End Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" EntitySet="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" />
+      <End Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA" EntitySet="tbl_aCOMISIONESXC_UBIGEO_OFICINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_mCOMI__CODIG__119642DB" Association="Self.FK__tbl_mCOMI__CODIG__119642DB">
+      <End Role="tbl_mCOMISIONESXC_CLIENTE" EntitySet="tbl_mCOMISIONESXC_CLIENTE" />
+      <End Role="tbl_mCOMISIONESXC_CONSULTA" EntitySet="tbl_mCOMISIONESXC_CONSULTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_MCOMI__CODIG__6B06859F" Association="Self.FK__TBL_MCOMI__CODIG__6B06859F">
+      <End Role="tbl_mCOMISIONESXC_CONSULTA" EntitySet="tbl_mCOMISIONESXC_CONSULTA" />
+      <End Role="TBL_MCOMISIONESXC_CONSULTA_ANIO" EntitySet="TBL_MCOMISIONESXC_CONSULTA_ANIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_MCOMI__CODIG__6BFAA9D8" Association="Self.FK__TBL_MCOMI__CODIG__6BFAA9D8">
+      <End Role="TBL_ACOMISIONESXC_ANIOS" EntitySet="TBL_ACOMISIONESXC_ANIOS" />
+      <End Role="TBL_MCOMISIONESXC_CONSULTA_ANIO" EntitySet="TBL_MCOMISIONESXC_CONSULTA_ANIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_mCOMI__ID_CI__128A6714" Association="Self.FK__tbl_mCOMI__ID_CI__128A6714">
+      <End Role="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" EntitySet="tbl_aCOMISIONESXC_UBIGEO_CIUDAD" />
+      <End Role="tbl_mCOMISIONESXC_CONSULTA" EntitySet="tbl_mCOMISIONESXC_CONSULTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_mCOMI__ID_OF__137E8B4D" Association="Self.FK__tbl_mCOMI__ID_OF__137E8B4D">
+      <End Role="tbl_aCOMISIONESXC_UBIGEO_OFICINA" EntitySet="tbl_aCOMISIONESXC_UBIGEO_OFICINA" />
+      <End Role="tbl_mCOMISIONESXC_CONSULTA" EntitySet="tbl_mCOMISIONESXC_CONSULTA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

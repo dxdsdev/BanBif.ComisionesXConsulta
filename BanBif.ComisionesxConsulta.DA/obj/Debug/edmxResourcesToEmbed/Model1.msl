@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="panelModelStoreContainer" CdmEntityContainer="panelEntities">
+    <EntitySetMapping Name="tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+      <EntityTypeMapping TypeName="panelModel.tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+        <MappingFragment StoreEntitySet="tbl_aCOMISIONESXC_UBIGEO_OFICINA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE_OFICINA" ColumnName="NOMBRE_OFICINA" />
+          <ScalarProperty Name="UBIGEO_OFICINA" ColumnName="UBIGEO_OFICINA" />
+          <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+          <ScalarProperty Name="ID_OFICINA" ColumnName="ID_OFICINA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mCOMISIONESXC_CLIENTE">
+      <EntityTypeMapping TypeName="panelModel.tbl_mCOMISIONESXC_CLIENTE">
+        <MappingFragment StoreEntitySet="tbl_mCOMISIONESXC_CLIENTE">
+          <ScalarProperty Name="ULTIMOSDIGITOSNROCUENTA" ColumnName="ULTIMOSDIGITOSNROCUENTA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="FECHA_REGISTRO" ColumnName="FECHA_REGISTRO" />
+          <ScalarProperty Name="COMPROBACION" ColumnName="COMPROBACION" />
+          <ScalarProperty Name="TIENECONSULTA" ColumnName="TIENECONSULTA" />
+          <ScalarProperty Name="NUMEROCUENTA" ColumnName="NUMEROCUENTA" />
+          <ScalarProperty Name="NROTARJETA" ColumnName="NROTARJETA" />
+          <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CODIGOCLIENTE" ColumnName="CODIGOCLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mCOMISIONESXC_TOKEN">
+      <EntityTypeMapping TypeName="panelModel.tbl_mCOMISIONESXC_TOKEN">
+        <MappingFragment StoreEntitySet="tbl_mCOMISIONESXC_TOKEN">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="VALIDADO" ColumnName="VALIDADO" />
+          <ScalarProperty Name="TOKEN" ColumnName="TOKEN" />
+          <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+          <ScalarProperty Name="CODIGOTOKEN" ColumnName="CODIGOTOKEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ACOMISIONESXC_ANIOS">
+      <EntityTypeMapping TypeName="panelModel.TBL_ACOMISIONESXC_ANIOS">
+        <MappingFragment StoreEntitySet="TBL_ACOMISIONESXC_ANIOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+          <ScalarProperty Name="CODIGO_ANIO" ColumnName="CODIGO_ANIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_MCOMISIONESXC_CONSULTA_ANIO">
+      <EntityTypeMapping TypeName="panelModel.TBL_MCOMISIONESXC_CONSULTA_ANIO">
+        <MappingFragment StoreEntitySet="TBL_MCOMISIONESXC_CONSULTA_ANIO">
+          <ScalarProperty Name="CODIGO_ANIO" ColumnName="CODIGO_ANIO" />
+          <ScalarProperty Name="CODIGOCONSULTA" ColumnName="CODIGOCONSULTA" />
+          <ScalarProperty Name="ID_CONSULTADETALL" ColumnName="ID_CONSULTADETALL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mCOMISIONESXC_CONSULTA">
+      <EntityTypeMapping TypeName="panelModel.tbl_mCOMISIONESXC_CONSULTA">
+        <MappingFragment StoreEntitySet="tbl_mCOMISIONESXC_CONSULTA">
+          <ScalarProperty Name="CODIGO_PROCESO" ColumnName="CODIGO_PROCESO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ID_OFICINA" ColumnName="ID_OFICINA" />
+          <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+          <ScalarProperty Name="FECHA_OBSERVACION_UPD" ColumnName="FECHA_OBSERVACION_UPD" />
+          <ScalarProperty Name="FECHA_OBSERVACION" ColumnName="FECHA_OBSERVACION" />
+          <ScalarProperty Name="CHK_TARIFARIO" ColumnName="CHK_TARIFARIO" />
+          <ScalarProperty Name="CHK_TERMINOS_CONDICIONES" ColumnName="CHK_TERMINOS_CONDICIONES" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="USUARIO_ATENCION" ColumnName="USUARIO_ATENCION" />
+          <ScalarProperty Name="CARGOTARJETA" ColumnName="CARGOTARJETA" />
+          <ScalarProperty Name="FLAG_CORREO" ColumnName="FLAG_CORREO" />
+          <ScalarProperty Name="FECHA_CONSULTA" ColumnName="FECHA_CONSULTA" />
+          <ScalarProperty Name="FECHA_ATENCION" ColumnName="FECHA_ATENCION" />
+          <ScalarProperty Name="ATENDIDO" ColumnName="ATENDIDO" />
+          <ScalarProperty Name="CODIGOCLIENTE" ColumnName="CODIGOCLIENTE" />
+          <ScalarProperty Name="CODIGOCONSULTA" ColumnName="CODIGOCONSULTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+      <EntityTypeMapping TypeName="panelModel.tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+        <MappingFragment StoreEntitySet="tbl_aCOMISIONESXC_UBIGEO_CIUDAD">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE_CIUDAD" ColumnName="NOMBRE_CIUDAD" />
+          <ScalarProperty Name="UBIGEO_CIUDAD" ColumnName="UBIGEO_CIUDAD" />
+          <ScalarProperty Name="ID_CIUDAD" ColumnName="ID_CIUDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

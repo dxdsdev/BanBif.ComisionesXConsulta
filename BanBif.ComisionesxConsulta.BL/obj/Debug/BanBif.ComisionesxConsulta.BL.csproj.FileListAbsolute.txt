@@ -1,0 +1,48 @@
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll.config
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.xml
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.AssemblyReference.cache
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CoreCompileInputs.cache
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.dll
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.pdb
+C:\Users\sebas\source\Workspaces\Área de trabajo\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CopyComplete
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.pdb
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.pdb
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll.config
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.xml
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.xml
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csprojAssemblyReference.cache
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CoreCompileInputs.cache
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CopyComplete
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.dll
+F:\BanBif\BanBif.ComisionesConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BL.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.BE.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.pdb
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\BanBif.ComisionesxConsulta.DA.dll.config
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\bin\Debug\EntityFramework.xml
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.AssemblyReference.cache
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CoreCompileInputs.cache
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.csproj.CopyComplete
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.dll
+C:\Users\DRomero\Downloads\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta\BanBif.ComisionesxConsulta.BL\obj\Debug\BanBif.ComisionesxConsulta.BL.pdb

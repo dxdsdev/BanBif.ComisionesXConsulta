@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "776b7f18-34fd-4c38-ba71-e071a13a2e0d": {
+      "ProjectGuid": "776b7f18-34fd-4c38-ba71-e071a13a2e0d",
+      "DisplayName": "BanBif.ComisionesxConsulta.BL",
+      "ColorIndex": 0
+    },
+    "92399a96-c649-426e-942e-197891b7cb6b": {
+      "ProjectGuid": "92399a96-c649-426e-942e-197891b7cb6b",
+      "DisplayName": "BanBif.ComisionesxConsulta.Api",
+      "ColorIndex": 1
+    },
+    "c7330490-0289-49d7-bdc3-89a2ee90c7ff": {
+      "ProjectGuid": "c7330490-0289-49d7-bdc3-89a2ee90c7ff",
+      "DisplayName": "BanBif.ComisionesxConsulta.Web",
+      "ColorIndex": 2
+    },
+    "feda31bf-70b4-466f-95d4-b88895ac4641": {
+      "ProjectGuid": "feda31bf-70b4-466f-95d4-b88895ac4641",
+      "DisplayName": "BanBif.ComisionesxConsulta.BE",
+      "ColorIndex": 3
+    },
+    "c2f4793e-cb56-40b4-bdf5-a0b0ec5111ac": {
+      "ProjectGuid": "c2f4793e-cb56-40b4-bdf5-a0b0ec5111ac",
+      "DisplayName": "BanBif.ComisionesxConsulta.DA",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

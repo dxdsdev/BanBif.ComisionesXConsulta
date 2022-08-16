@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* PRIMERA PANTLLA *@
+<fieldset>
+    <div class="form-group">
+        <label for="documento">Ingrese tu número de documento de identidad</label>
+        <input type="text" id="documento" name="documento" placeholder="Documento de identidad" value="" class="doc_id form-control" maxlength="12" data-validate="true" value="" data-valid="false" autocomplete="off" data-error="Indique un valor correcto por favor." required>
+    </div>
+    <div class="form-group">
+        <label class="" for="f1-email">Ingresa los 4 últimos digitos de tu tarjeta de débito activa</label><br>
+        <div class="content-tarjeta" >
+            <img class="tarjeta" src="~/assets/img/backgrounds/tarjeta.png" maxlenght="4">
+            <input type="text" id="digitos" name="digitos" maxlength="4" class="form-control digitos" autocomplete="off" value="">
+        </div>
+    </div>
+    <div class="g-recaptcha" data-sitekey="6LePgKMUAAAAAK96lIyje7v2UFzIC33loqabo38N"></div>
+    <div class="f1-buttons">
+        <input type="button" id="btnContinuarPantalla1" value="Continuar" class="btn btn-next" onclick="Siguiente()" />
+    </div>
+</fieldset>
+
+
+<script type="text/javascript">
+
+    function GenerarUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+
+    $(document).ready(function () {
+            sessionStorage.clear();
+
+            $('#f1').addClass("active");
+            $('#f2').removeClass("active");
+            $('#f3').removeClass("active");
+
+            sessionStorage.setItem("URL", "@ViewBag.URL");
+            sessionStorage.setItem("UID", GenerarUID());
+            sessionStorage.setItem("IP_CLIENTE", '@Request.ServerVariables["REMOTE_ADDR"]');
+
+      
+
+        });
+
+        function Siguiente() {
+            try {
+
+                    var response = grecaptcha.getResponse();
+
+             if (response.length == 0) {
+                    alert("Captcha no verificado");
+                    return;
+                }
+
+                if ($("#documento").val() == "" || $("#digitos").val() == "" || $('#digitos').val().length != 4) {
+                    alert('Por favor, debes de ingresar el número de tu DNI o los últimos 4 dígitos de tu tarjeta BanBif.');
+                    return false;
+
+                }
+
+
+                FN_Loading();
+                var oBE = {};
+                oBE.NumeroDocumento = $("#documento").val();
+                oBE.NroTarjeta = $("#digitos").val();
+
+                $.ajax({
+                    url: sessionStorage.URL + '/Login/ValidarLogin',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    processData: true,
+                    data: JSON.stringify(oBE),
+                    success: function (response) {
+                        console.log(response);
+                        if (response.Result) {
+                            FN_Loading();
+                            sessionStorage.setItem("CODCLIENTE", response.Data.CodigoCliente);
+                            sessionStorage.setItem("Documento", response.Data.NumeroDocumento);
+                            ValidacionToken();
+                        } else {
+                            alertify.error(response.mensaje);
+                        }
+                        $.unblockUI();
+                    },
+                    failure: function (msg) {
+                        console.log(msg);
+                        $.unblockUI();
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                        $.unblockUI();
+                    },
+                    complete: function () {
+                        //$.unblockUI();
+                        //$("#prueba").dialog("close")
+                    }
+                });
+
+            } catch (e) {
+                console.log(e);
+                $.unblockUI();
+            }
+
+
+    }
+
+
+    function ValidacionToken() {
+       
+        //TOKEN
+        var Token = {};
+        Token.CodigoCliente = sessionStorage.CODCLIENTE;
+        Token.Tipo = "A";
+
+
+        $.ajax({
+            url: sessionStorage.URL + '/Login/EnviarToken',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Token),
+            success: function (response) {
+
+                $.unblockUI();
+
+               
+                if (response.Enviado) {
+                    alert('Te hemos enviado una clave de verificación, revisa tu correo electrónico. Si no recibiste el correo, puedes actualizarlo a través de la Banca Telefónica 631-9000 (Lima) o 0-801-0-0456 (provincias).');
+                    window.location.href = sessionStorage.URL + "/Confirmar";
+
+                } else {
+                    alertify.error('ERROR', 'Ocurrio un error interno, intente de nuevo mas adelante.')
+                    //alert('Ocurrio un error interno, intente de nuevo mas adelante.');
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+    }
+</script>

@@ -1,0 +1,229 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<fieldset>
+    <b style="font-size:20px">HOLA <span style="color:#20A3FF" id="spClienteConfirmacion">,</span></b>
+    <br />
+    <b>Realiza la solicitud de los movimientos de tus cuentas y recógelo de la oficina más cercana</b>
+    <br />
+    <div class="form-group">
+        <p>1. Elige la cuenta</p>
+        <select id="cboCuenta" class="form-control" data-validate="true" style="font-size: 17px; text-align: center;">
+        </select>
+    </div>
+    <br />
+    <div class="form-group" style="height: 10%;">
+        <p>2. Años elección</p>
+
+        <div class="form-check" style="margin-left: 30px;">
+
+            <div class="form-check-inline">
+                <label class="form-check-label" style="margin-right: 10px;">
+                    <input type="checkbox" class="form-check-input" value=""> 2020
+                </label>
+
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value=""> 2019
+                </label>
+
+
+            </div>
+        </div>
+
+        <div class="form-check" style="margin-left: 30px;">
+            <div class="form-check-inline">
+
+                <label class="form-check-label" style="margin-right: 10px;">
+                    <input type="checkbox" class="form-check-input" value=""> 2015
+                </label>
+
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value=""> 2018
+                </label>
+            </div>
+
+        </div>
+
+        <div class="form-check" style="margin-left: 30px;">
+            <div class="form-check-inline">
+
+                <label class="form-check-label" style="margin-right: 10px;">
+                    <input type="checkbox" class="form-check-input" value=""> 2017
+                </label>
+
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value=""> 2016
+                </label>
+
+            </div>
+
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <p>3. Elige tu ciudad</p>
+        <select id="cboDistito" class="form-control" data-validate="true" style="font-size: 17px; text-align: center;">
+
+            <option value="" selected>Seleccione....</option>
+            @{
+                if (ViewBag.Distrito != null)
+                {
+                    if (ViewBag.Distrito.listadoDistrito.Count > 0)
+                    {
+                        foreach (var item in ViewBag.Distrito.listadoDistrito)
+                        {
+
+                            <option value="@item.CodigoDistrito">@item.NombreDistrito</option>
+
+                        }
+                    }
+                }
+            }
+        </select>
+    </div>
+    <br />
+
+
+    <div class="form-group">
+        <p>4. Elige la oficina más cercana</p>
+        <select id="cboOficina" class="form-control" data-validate="true" style="font-size:17px; text-align:center;">
+        </select>
+    </div>
+    <br />
+
+    <div align="left" style="text-align:center; font-size:small;">
+        <div>
+            <div id="divCondiciones">
+                <p>Condiciones <br />
+                El costo por periodo es de S/.50 <br />
+                El costo total sería <br />
+                Podrá acercarse a recoger a la oficina después de 2 días hábiles de ingresada la solicitud</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:inline-block;" class="f1-buttons">
+
+        <button type="button" id="btnDesembolsar" class="btn btn-next" style="width:20%;" onclick="Continuar()">Continuar</button>
+        <button type="button" id="btnVolverPantalla3" class="btn btn-previous" style="width:20%" @*onclick=""*@>Volver</button>
+
+
+    </div>
+
+</fieldset>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if (sessionStorage.CODCLIENTE == undefined) {
+            /*Volver();*/
+        }
+
+        /*SETEAR PASO*/
+
+        $('#f1').removeClass("active");
+        $('#f2').addClass("active");
+        $('#f3').removeClass("active");
+
+
+
+        /*obtener nombre del cliente: nombre  sessionStorage.URL */
+        var Cliente = {};
+        Cliente.CodigoCliente = sessionStorage.CODCLIENTE;
+
+        /*OBTENER DATOS CLIENTE*/
+        $.ajax({
+            url: sessionStorage.URL + '/Seleccionar/ListarCuenta',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Cliente),
+            success: function (response) {
+
+                if (response.Result) {
+                    $("#spClienteConfirmacion").text(response.Data.Nombre);
+
+                    var htmlCuentas= '';
+                    $.each(response.Data.NroCuenta, function (index, item) {
+                        htmlCuentas += '<option value="' + item.CodigoCliente + '">' + item.NroCuentaCliente + '</option>';
+                    });
+                    $('#cboCuenta').html(htmlCuentas);
+                }
+
+                $.unblockUI();
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    });
+
+    function ListarOficina(CodigoDistrito) {
+        var distrito = $('#cboDistrito').val();
+        var  Oficinas = {};
+        Oficinas.CodigoDistrito = distrito;
+
+        $.ajax({
+            url: sessionStorage.URL + '/Seleccionar/ListarOficinas',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Oficinas),
+            success: function (response) {
+                console.log(response);
+                if (response.Result) {
+                    if (CodigoOficina == 0) {
+                        var html = '<option value="" selected>Seleccione....</option>';
+                    } else {
+                        var html = '<option value="">Seleccione....</option>';
+                    }
+
+                    $(response.Data.ListaOficinas).each(function () {
+                        if (CodigoOficina > 0 && CodigoOficina == this.CodigoOficina) {
+                            html += '<option value="' + this.CodigoOficina + '" selected>' + this.DescripcionOficina + '</option>'
+                        } else {
+                            html += '<option value="' + this.CodigoOficina + '">' + this.DescripcionOficina + '</option>'
+                        }
+                    });
+
+                    $('#cboOficina').html(html);
+                } else {
+                    var html = '<option value="" selected>Seleccione....</option>';
+                    $('#cboOficina').html(html);
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+    }
+
+
+
+
+
+</script>

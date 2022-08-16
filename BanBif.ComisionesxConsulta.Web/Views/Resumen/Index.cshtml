@@ -1,0 +1,142 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <b style="font-size:20px">Hola <span style="color:#20A3FF" id="spNombreCliente">,</span></b>
+    <br />
+    <b style="font-size:20px">Solcitud Exitosa de  <span style="color:#20A3FF">Movimientos de Cuenta</span></b>
+    <br /> <br />
+
+
+    <b>Cuenta Solicitada de movimientos:</b>
+    <br />
+    <span id="spCuenta"> </span>
+    <br />
+    <br />
+
+    <b>Periodo de solicitud: </b>  <span id="spPeriodo"> </span>
+    <br />
+    <br />
+
+    <b>Oficina de Recojo: </b><span id="spOficina"> </span>
+    <br />
+    <br />
+
+    <b>Monto de Cobro:</b>  <span id="spMontoaPagar"> </span>
+    <br />
+    <br />
+
+    <b>Fecha y Hora de la solicitud:</b><strong>   <span id="spFecha"> </span> :  <span id="spHora"> </span> </strong>
+    <br />
+    <br />
+
+    <div align="center">
+        <div>
+            <span style="font-size: 15px;">
+                Cuenta de cargo: La cuenta en consulta o, en caso de no tener fondos disponibles en dicha cuenta, en cualquier otra cuenta de ahorro BanBif de tu titularidad con fondos disponibles.
+            </span>
+        </div>
+    </div>
+    <br />
+    <div>
+        <div>
+            <span style="font-size: 15px;">
+                Podrás recoger los movimientos en formato físico impreso en la oficina que elijas, después de 2 días hábiles del ingreso de tu solicitud.
+            </span>
+        </div>
+    </div>
+
+    <div style="display:inline-block;" class="f1-buttons">
+
+        <input type="button" id="btnRefrescar" value="Salir" class="btn btn-next" onclick="Finalizar()" />
+
+    </div>
+
+</fieldset>
+
+<script>
+    $(document).ready(function () {
+        if (sessionStorage.CODCLIENTE == undefined) {
+
+        }
+
+        /*SETEAR PASO*/
+
+        $('#f1').removeClass("active");
+        $('#f2').removeClass("active");
+        $('#f3').addClass("active");
+
+        
+        var objMarcados = JSON.parse(sessionStorage.Marcados);
+        var periodo = '';
+        for (var i in objMarcados) {
+            
+            if (objMarcados[i].Codigo == 1) {
+                periodo+= '2015 '
+            } else if (objMarcados[i].Codigo ==2) {
+                periodo += '2016 '
+            } else  if (objMarcados[i].Codigo == 3) {
+                periodo += '2017 '
+            } else if (objMarcados[i].Codigo == 4) {
+                periodo += '2018 '
+            } else if (objMarcados[i].Codigo == 5) {
+                periodo += '2019 '
+            } else if (objMarcados[i].Codigo == 6) {
+                periodo += '2020 '
+            } else if (objMarcados[i].Codigo == 7) {
+                periodo += '2021 '
+            } 
+        }
+
+        sessionStorage.setItem("Periodo", periodo);
+
+        //Marcados
+        $('#spPeriodo').text(periodo);
+        $('#spOficina').text(sessionStorage.Oficina);
+        $('#spMontoaPagar').text('S/. '+sessionStorage.Cargo);
+        $('#spCuenta').text(sessionStorage.Cuenta);
+        $('#spFecha').text("@ViewBag.Dia");
+        $('#spHora').text("@ViewBag.Hora");
+
+        /*obtener nombre del cliente: nombre  sessionStorage.URL */
+        var Cliente = {};
+        Cliente.CodigoCliente = sessionStorage.CODCLIENTE;
+
+        /*OBTENER DATOS CLIENTE*/
+        $.ajax({
+            url: sessionStorage.URL + '/Resumen/ObtenerNombreCliente',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Cliente),
+            success: function (response) {
+
+                if (response.Result) {
+                    $("#spNombreCliente").text(response.Data.nombreCliente);
+                }
+
+                $.unblockUI();
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    });
+
+
+    function Finalizar() {
+        window.location.href = sessionStorage.URL + "/Login";
+    }
+</script>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d8c415aff98488ca100a77812abf287" Name="Diagram1">
+        <EntityTypeShape EntityType="panelModel.tbl_aCOMISIONESXC_UBIGEO_CIUDAD" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="panelModel.tbl_aCOMISIONESXC_UBIGEO_OFICINA" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="panelModel.tbl_mCOMISIONESXC_CLIENTE" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="panelModel.tbl_mCOMISIONESXC_TOKEN" Width="1.5" PointX="0.75" PointY="8.875" />
+        <AssociationConnector Association="panelModel.FK__tbl_aCOMI__ID_CI__0CD18DBE" />
+        <EntityTypeShape EntityType="panelModel.TBL_ACOMISIONESXC_ANIOS" Width="3.25" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="panelModel.TBL_MCOMISIONESXC_CONSULTA_ANIO" Width="3.125" PointX="7.5" PointY="5.625" />
+        <AssociationConnector Association="panelModel.FK__TBL_MCOMI__CODIG__6BFAA9D8" />
+        <EntityTypeShape EntityType="panelModel.tbl_mCOMISIONESXC_CONSULTA" Width="1.5" PointX="5.25" PointY="3.75" />
+        <AssociationConnector Association="panelModel.FK__tbl_mCOMI__ID_CI__128A6714" />
+        <AssociationConnector Association="panelModel.FK__tbl_mCOMI__ID_OF__137E8B4D" />
+        <AssociationConnector Association="panelModel.FK__tbl_mCOMI__CODIG__119642DB" />
+        <AssociationConnector Association="panelModel.FK__TBL_MCOMI__CODIG__6B06859F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,317 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<fieldset>
+    <b style="font-size:20px">HOLA <span style="color:#20A3FF" id="spClienteConfirmacion">,</span></b>
+    <br />
+    <small>
+        Solicita aquí el duplicado de los movimientos de años anteriores de tus cuentas de ahorro y recógelos en la Oficina BanBif más cercana:
+    </small>
+    <br />
+    <div class="form-group">
+        <p>1. Elige la cuenta</p>
+        <select id="cboCuenta" class="form-control" data-validate="true" style="font-size: 17px; text-align: center;">
+        </select>
+    </div>
+    <div class="form-group" style="height: 10%;">
+        <p>2. Años elección</p>
+
+        @{
+            if (ViewBag.Anios != null && ViewBag.Anios.Lista.Count > 0)
+            {
+                <div class="form-check" style="margin-left: 30px;">
+                    <input type="hidden" value="@ViewBag.Anios.Lista" id="hdnAnios"/>
+                    @foreach (var itemA in ViewBag.Anios.Lista)
+                    {   <label class="form-check-label" style="margin-right: 10px;">
+                            <input id="chckAnio_@itemA.Codigo" type="checkbox" class="form-check-input" onclick="ObtenerAniosMarcados()"> @itemA.Descripcion
+                        </label>
+                    }
+                    </div>
+
+            }
+        }
+
+
+       
+    </div>
+
+    <div class="form-group">
+        <p>3. Elige tu ciudad</p>
+        <select id="cboDistrito" class="form-control" data-validate="true" style="font-size: 17px; text-align: center;"  onchange="ListarOficina(0)">
+
+            <option value="" selected>Seleccione....</option>
+            @{
+                if (ViewBag.Distrito != null)
+                {
+                    if (ViewBag.Distrito.listadoDistrito.Count > 0)
+                    {
+                        foreach (var item in ViewBag.Distrito.listadoDistrito)
+                        {
+
+                            <option value="@item.CodigoDistrito">@item.NombreDistrito</option>
+
+                        }
+                    }
+                }
+            }
+        </select>
+    </div>
+    <br />
+
+
+    <div class="form-group">
+        <p>4. Elige la oficina más cercana</p>
+        <select id="cboOficina" class="form-control" data-validate="true" style="font-size:17px; text-align:center;">
+            <option value="" selected>Seleccione....</option>
+        </select>
+    </div>
+
+    <div align="left" style="text-align:center; font-size:11.5px;">
+        <div>
+            <div id="divCondiciones">
+                Condiciones <br />
+                El costo por año es de S/ 50 <br />
+                El costo total sería: S/<br />
+                Podrás recoger los movimientos en formato físico impreso en la oficina que elijas, después de 2 días hábiles del ingreso de tu solicitud.
+            </div>
+        </div>
+    </div>
+
+    <div style="display:inline-block;" class="f1-buttons">
+
+        <button type="button" id="btnDesembolsar" class="btn btn-next" style="width:20%;" onclick="Continuar();">Continuar</button>
+        <button type="button" id="btnVolverPantalla3" class="btn btn-previous" style="width:20%" onclick="Volver();">Volver</button>
+
+
+    </div>
+
+</fieldset>
+
+<script type="text/javascript">
+    var ListaAnios = "";
+    var ListaMarcados = [];
+    $(document).ready(function () {
+        if (sessionStorage.CODCLIENTE == undefined) {
+            Volver();
+        }
+        ListaAnios = "@ViewBag.CodigosAnios";
+
+
+        /*SETEAR PASO*/
+
+        $('#f1').removeClass("active");
+        $('#f2').addClass("active");
+        $('#f3').removeClass("active");
+
+
+
+        /*obtener nombre del cliente: nombre  sessionStorage.URL */
+        var Cliente = {};
+        Cliente.CodigoCliente = sessionStorage.CODCLIENTE;
+
+        /*OBTENER DATOS CLIENTE*/
+        $.ajax({
+            url: sessionStorage.URL + '/Seleccionar/ListarCuenta',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Cliente),
+            success: function (response) {
+
+                if (response.Result) {
+                    $("#spClienteConfirmacion").text(response.Data.Nombre);
+
+                    var htmlCuentas= '';
+                    $.each(response.Data.NroCuenta, function (index, item) {
+                        htmlCuentas += '<option value="' + item.CodigoCliente + '">' + item.NroCuentaCliente + '</option>';
+                    });
+                    $('#cboCuenta').html(htmlCuentas);
+
+
+                }
+
+
+                $.unblockUI();
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    });
+
+    function ListarOficina(CodigoOficina) {
+        var distrito = $('#cboDistrito').val();
+        var  Oficinas = {};
+        Oficinas.CodigoDistrito = distrito;
+
+        $.ajax({
+            url: sessionStorage.URL + '/Seleccionar/ListarOficinas',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Oficinas),
+            success: function (response) {
+                console.log(response);
+                if (response.Result) {
+                    if (CodigoOficina == 0) {
+                        var html = '<option value="" selected>Seleccione....</option>';
+                    } else {
+                        var html = '<option value="">Seleccione....</option>';
+                    }
+
+                    $(response.Data.ListaOficinas).each(function () {
+                        if (CodigoOficina > 0 && CodigoOficina == this.CodigoOficina) {
+                            html += '<option value="' + this.CodigoOficina + '" selected>' + this.DescripcionOficina + '</option>';
+                        } else {
+                            html += '<option value="' + this.CodigoOficina + '">' + this.DescripcionOficina + '</option>';
+                        }
+                    });
+
+                    $('#cboOficina').html(html);
+
+
+
+
+                } else {
+                    var html = '<option value="" selected>Seleccione....</option>';
+                    $('#cboOficina').html(html);
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+    }
+
+    function Volver() {
+
+        sessionStorage.clear();
+        window.history.back();
+    }
+
+
+
+    function ObtenerAniosMarcados() {
+        let con = 0;
+        ListaMarcados = [];
+        var arrAnios = ListaAnios.split('|');
+
+        for (var i = 1; i <= arrAnios.length - 1; i++) {
+            var codigo = arrAnios[i];
+
+            if ($('#chckAnio_' + codigo).prop('checked')) {
+                con += 1;
+                var Anio = {};
+                Anio.Codigo = codigo;
+                ListaMarcados.push(Anio);
+            }
+
+        }
+
+        console.log(ListaMarcados);
+
+        let cargo = 50 * con;
+
+        sessionStorage.setItem("Cargo", cargo);
+
+        var strHTMLNombre = 'Condiciones <br /> El costo por año es de S/ 50. <br />  El costo total sería: S/ ' + cargo +' <br /> Podrá acercarse a recoger los movimientos de tu cuenta impreso a la oficina después de 2 días hábiles de ingresada la solicitud'
+        $("#divCondiciones").html(strHTMLNombre);
+
+
+    }
+
+    function Continuar() {
+        ObtenerAniosMarcados();
+
+        sessionStorage.setItem("Marcados", JSON.stringify(ListaMarcados));
+
+        sessionStorage.setItem("IdDistrito", $('#cboDistrito').val());
+        sessionStorage.setItem("Distrito", $('#cboDistrito option:selected').text());
+
+        sessionStorage.setItem("IdOficina", $('#cboOficina').val());
+
+        sessionStorage.setItem("Oficina", $('#cboOficina option:selected').text());
+
+        sessionStorage.setItem("Cuenta", $('#cboCuenta option:selected').text());
+
+        if (ListaMarcados.length == 0) {
+            alert('No ha seleccionado ningún Año');
+            return;
+        }
+
+        if ($("#cboDistrito").val().trim() === '') {
+            alert('No ha seleccionado ningún distrito');
+            return;
+        }
+        if ($("#cboOficina").val().trim() === '') {
+            alert('No ha seleccionado ninguna oficina');
+            return;
+        }
+
+        //TOKEN
+        var Token = {};
+        Token.CodigoCliente = sessionStorage.CODCLIENTE;
+        Token.Tipo = "B";
+
+        $.ajax({
+            url: sessionStorage.URL + '/Seleccionar/EnviarToken',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Token),
+            success: function (response) {
+
+                $.unblockUI();
+
+
+                if (response.Enviado) {
+                    FN_Loading();
+                    alert('Te hemos enviado una clave de confirmación, revisa tu correo electrónico.');
+                    window.location.href = sessionStorage.URL + "/SolicitarConsulta";
+
+                } else {
+                    alertify.error('ERROR', 'Ocurrio un error interno, intente de nuevo mas adelante.')
+
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    }
+
+</script>

@@ -1,0 +1,218 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* TERCERA PANTLLA *@
+<fieldset>
+    <b style="font-size:20px">Hola <span style="color:#20A3FF" id="spNombreCliente">,</span></b>
+    <br />
+    <span style="font-size: 17px;">
+        realiza la solicitud de los movimientos de <br />
+        tus cuentas y recógelo de la oficina más <br />
+        cercana:
+    </span>
+    <br /> <br />
+
+
+    <b>Monto a Pagar: S/ <span id="spMontoaPagar"> </span></b>
+    <br />
+    <span>Oficina de Recojo: <span id="spDistrito"> </span> -  <span id="spOficina"> </span></span> <br /> <br />
+
+    <span>Cuenta de cargo: La cuenta de consulta u otra cuenta de ahorros con saldo a la fecha de esta solicitud</span><br /><br />
+    <div class="form-group">
+        <span>Se ha enviado un código de validación al correo</span><br />
+        <input type="text" id="txt_correo_validacion" name="correo" class="email form-control" data-validate="true" data-type="email" disabled="disabled" style="font-size:12px; text-align:center;">
+        <span>Por favor ingrésalo para completar la solicitud</span>
+    </div>
+    <div align="center">
+        <input type="text" name="clave" id="clave" maxlength="4" class="form-control text-center" placeholder="Ingresar código" style="margin-top:30px; width:170px;height:40px" required>
+        <br />
+    </div>
+    <div align="center">
+        <a style="color: red;">¿No recibiste el código?</a> <br />
+        <a href="#" onclick="ValidacionToken()" id="btnReenviar"><u>Reenviar código</u></a>
+        <div id="reenviarCodigo" class="text-primary text-center" style="display:none"><small>(*) Código reenviado a tu correo</small></div>
+        <div id="errorCodigo" class="text-danger text-center" style="display:none"><small>(*) Código ingresado incorrecto</small></div>
+
+    </div>
+
+    <div align="center" style="text-align:justify">
+        <div>
+            <br />
+            <input id="chkTerminosCondiciones" type="checkbox"> Acepto <a class="donwloadcertificado" href="~/assets/file/CertificadoPet LoverCHUBB1910.pdf" target="_blank">Términos y Condiciones</a>
+            <br />
+            <input id="chkTarifario" type="checkbox"> He leído y acepto <a class="donwloadcertificado" href="~/assets/file/CertificadoPet LoverCHUBB1910.pdf" target="_blank">Tarifario</a>
+        </div>
+    </div>
+
+    <div style="display:inline-block;" class="f1-buttons">
+
+        <button type="button" id="btnDesembolsar" class="btn btn-next" style="width:20%;" onclick="Continuar()">Continuar</button>
+        <button type="button" id="btnVolverPantalla3" class="btn btn-previous" style="width:20%" onclick="Volver()">Volver</button>
+
+
+    </div>
+
+</fieldset>
+
+<script>
+    $(document).ready(function () {
+        if (sessionStorage.CODCLIENTE == undefined) {
+            /*Volver();*/
+        }
+
+        /*SETEAR PASO*/
+
+        $('#f1').removeClass("active");
+        $('#f2').removeClass("active");
+        $('#f3').addClass("active");
+
+        $('#spDistrito').text(sessionStorage.Distrito);
+        $('#spOficina').text(sessionStorage.Oficina);
+        $('#spMontoaPagar').text(sessionStorage.Cargo);
+
+        var Cliente = {};
+        Cliente.CodigoCliente = sessionStorage.CODCLIENTE;
+
+        $.ajax({
+            url: sessionStorage.URL + '/SolicitarConsulta/ObtenerDatosClientes',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Cliente),
+            success: function (response) {
+
+                if (response.Result) {
+                    $("#txt_correo_validacion").val(response.Data.Correo);
+                    $("#spNombreCliente").text(response.Data.Nombre);
+                }
+
+                $.unblockUI();
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    });
+
+    function Continuar() {
+
+        var oBERequest = {};
+        oBERequest.CodigoCliente = sessionStorage.getItem("CODCLIENTE");
+        oBERequest.Token = $('#clave').val();
+        oBERequest.CargoTarjeta = 1;
+        oBERequest.TerminosCondiciones = $('#chkTerminosCondiciones').prop('checked');
+        oBERequest.Tarifario = $('#chkTarifario').prop('checked');
+        oBERequest.CodigoOficina = sessionStorage.IdOficina;
+        oBERequest.CodigoDistrito = sessionStorage.IdDistrito;
+
+
+        $.ajax({
+            url: sessionStorage.URL + '/SolicitarConsulta/GuardarConsulta',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(oBERequest),
+            success: function (response) {
+
+                if (response.result) {
+
+                    ConfirmarToken();
+
+                    var bDescarga = false;
+
+                    if ($("#chkTerminosCondiciones").prop('checked') != true) {
+                        alert('Los términos y condiciones no fueron aceptados');
+                        return;
+                    }
+
+                    if ($("#chkTarifario").prop('checked') != true) {
+                        alert('El tarifario no ha sido aceptado');
+                        return;
+                    }
+
+                    if (bDescarga == false) {
+                        alert('Recuerda revisar los términos y condiciones');
+                        return
+                    }
+
+
+
+                    alert("Consulta guardada satisfactoriamente");
+                    window.location.href = sessionStorage.APP + '/Resumen';
+                } else {
+                    alert("Error al guardar la consulta");
+                    // console.log(response);
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                //  $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                //  $.unblockUI();
+            },
+            complete: function () {
+                $.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+
+    }
+
+    function ConfirmarToken() {
+        var Token = {};
+        Token.CodigoCliente = sessionStorage.CODCLIENTE;
+
+        $.ajax({
+            url: sessionStorage.URL + '/Login/EnviarToken',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            processData: true,
+            data: JSON.stringify(Token),
+            success: function (response) {
+                $.unblockUI();
+                if (response.Enviado) {
+
+                    alert('Se ha enviado una clave de verificación, revisar su correo');
+
+                } else {
+                    alertify.error('ERROR', 'Ocurrio un error interno, intente de nuevo mas adelante.')
+                    //alert('Ocurrio un error interno, intente de nuevo mas adelante.');
+                }
+            },
+            failure: function (msg) {
+                console.log(msg);
+                $.unblockUI();
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+                $.unblockUI();
+            },
+            complete: function () {
+                //$.unblockUI();
+                //$("#prueba").dialog("close")
+            }
+        });
+    }
+
+
+    function Volver() {
+
+        sessionStorage.clear();
+        window.history.back();
+    }
+</script>
